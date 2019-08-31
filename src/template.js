@@ -1,30 +1,22 @@
 // html skeleton provider
-function template(title, initialState = {}, content = ""){
-  let scripts = ''; // Dynamically ship scripts based on render type
-  if(content){
-    scripts = ` <script>
-                   window.__STATE__ = ${JSON.stringify(initialState)}
-                </script>
-                <script src="assets/client.js"></script>
-                `
-  } else {
-    scripts = ` <script src="assets/bundle.js"> </script> `
-  }
+function template(title, initialState = {}, content = "", styleTags = ""){
   let page = `<!DOCTYPE html>
               <html lang="en">
               <head>
                 <meta charset="utf-8">
                 <title> ${title} </title>
-                <link href="assets/style.css" rel="stylesheet">
+                ${styleTags}
               </head>
-              <body>
+              <body style="margin:0">
                 <div class="content">
                    <div id="app" class="wrap-inner">
-                      <!--- magic happens here -->  ${content}
+                      ${content}
                    </div>
                 </div>
-
-                  ${scripts}
+                <script>
+                  window.__STATE__ = ${JSON.stringify(initialState)}
+                </script>
+                <script src="assets/client.js"></script>
               </body>
               `;
 

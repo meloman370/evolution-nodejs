@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { fetchAppsIfNeeded } from '../redux/actions'
-
-import Card from './card'
-
+import { fetchAppsIfNeeded } from './redux/actions'
+import Header from './components/Header'
+import Content from './components/Content'
+import Footer from './components/Footer'
 
 class App extends Component {
 
@@ -14,16 +14,13 @@ class App extends Component {
 
 
   render() {
-    const { isFetching, apps } = this.props
-    let totalapps = apps.length;
-
-    return (
-       <div>
-         {isFetching && apps.length === 0 && <h2>Loading...</h2>}
-         {!isFetching && apps.length === 0 && <h2>Empty.</h2>}
-         <Card apps={apps} totalapps={totalapps} />
-       </div>
-    );
+    return(
+      <>
+        <Header/>
+        <Content/>
+        <Footer/>
+      </>
+    )
   }
 }
  

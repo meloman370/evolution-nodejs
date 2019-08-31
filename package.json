@@ -15,6 +15,10 @@
   },
   "author": "Rohit kumar",
   "license": "CC BY 4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meloman370/evolution-nodejs"
+  },
   "dependencies": {
     "express": "^4.16.3",
     "react": "^16.5.2",

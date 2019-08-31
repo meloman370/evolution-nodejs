@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+
 import HeaderStyled from './style'
+import Container from '../../styles/Container'
+import Row from '../../styles/Row'
+
+import Logo from './components/Logo'
+import SearchHeader from './components/SearchHeader'
+import LoginIcon from './components/LoginIcon'
+import CartIcon from './components/CartIcon'
 
 export default class Header extends Component {
-    render() {
-        return (
-            <HeaderStyled>
-                <ul>
-                    <li>
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/login">Login</NavLink>
-                    </li>
-                </ul>
-            </HeaderStyled>
-        )
-    }
+  render() {
+    return (
+      <HeaderStyled>
+				<Container>
+					<Row>
+						<Logo/>
+						<SearchHeader/>
+						<LoginIcon/>
+						<CartIcon/>
+					</Row>
+				</Container>
+      </HeaderStyled>
+    )
+  }
 }

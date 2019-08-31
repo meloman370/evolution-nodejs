@@ -5,6 +5,7 @@ function template(title, initialState = {}, content = "", styleTags = ""){
               <head>
                 <meta charset="utf-8">
                 <title> ${title} </title>
+                <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
                 ${styleTags}
               </head>
               <body style="margin:0">

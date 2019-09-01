@@ -5,7 +5,7 @@ import SearchIconStyled from './style'
 const SearchIcon = () => {
   return(
     <SearchIconStyled>
-      <Icon name="search_icon.png"/>
+      <Icon name="search_icon.png" alt="search"/>
     </SearchIconStyled>
   )
 }

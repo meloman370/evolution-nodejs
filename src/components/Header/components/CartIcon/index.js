@@ -6,7 +6,7 @@ export default class CartIcon extends Component {
   render() {
     return (
       <CartIconStyled>
-        <Icon name="shop_icon.png"/>
+        <Icon name="shop_icon.png" alt="cart"/>
       </CartIconStyled>
     )
   }

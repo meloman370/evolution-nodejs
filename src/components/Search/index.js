@@ -6,7 +6,8 @@ export default class Search extends Component {
   render() {
     return (
       <SearchStyled>
-        <input type="text"/>
+        <label htmlFor="search">Serch</label>
+        <input id="search" type="text"/>
         <SearchIcon/>
       </SearchStyled>
     )

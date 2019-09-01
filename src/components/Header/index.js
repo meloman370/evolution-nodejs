@@ -8,6 +8,7 @@ import Logo from './components/Logo'
 import SearchHeader from './components/SearchHeader'
 import LoginIcon from './components/LoginIcon'
 import CartIcon from './components/CartIcon'
+import Menu from './components/Menu'
 
 export default class Header extends Component {
   render() {
@@ -19,6 +20,9 @@ export default class Header extends Component {
 						<SearchHeader/>
 						<LoginIcon/>
 						<CartIcon/>
+					</Row>
+					<Row>
+						<Menu/>
 					</Row>
 				</Container>
       </HeaderStyled>

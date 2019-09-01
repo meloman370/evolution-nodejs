@@ -16,6 +16,10 @@ const SearchStyled = styled.div`
       outline: none;
     }
   }
+
+  label {
+    display: none;
+  }
 `
 
 export default SearchStyled

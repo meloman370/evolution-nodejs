@@ -5,7 +5,7 @@ import Icon from '../../../Icon'
 const LoginIcon = () => {
   return(
     <LoginIconStyled>
-      <Icon name="login_icon.png"/>
+      <Icon name="login_icon.png" alt="login"/>
     </LoginIconStyled>
   )
 }

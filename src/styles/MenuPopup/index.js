@@ -12,6 +12,7 @@ const MenuPopup = styled.div`
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background: white;
   box-sizing: border-box;
+  z-index: 1;
 
   .blocks {
     display: flex;

@@ -4,7 +4,7 @@ function template(title, initialState = {}, content = "", styleTags = ""){
               <html lang="en">
               <head>
                 <meta charset="utf-8">
-                <meta name="viewport" content="width=600, initial-scale=1">
+                <meta name="viewport" content="width=940, initial-scale=1">
                 <meta name="Description" content="Put your description here.">
                 <title> ${title} </title>
                 <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "pack": "webpack --config webpack.config.js",
+    "pack": "webpack --config webpack.config.js --mode=development",
     "babel": "babel src -d views",
     "build": "npm run pack && npm run babel"
   },

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 const MenuLink = ({ to, children }) => {
   return(
     <MenuLinkStyled>
-      <NavLink to={to}>{children}</NavLink>
+      <NavLink to={to} activeClassName="active">{children}</NavLink>
     </MenuLinkStyled>
   )
 }

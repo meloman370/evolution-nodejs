@@ -5,12 +5,16 @@ const MenuLinkStyled = styled.div`
   font-style: normal;
   font-weight: lighter;
   font-size: 16px;
-  margin-left: 15px;
+  margin-left: 10px;
   margin-bottom: 5px;
 
   a {
     text-decoration: none;
     color: black;
+
+    &.active {
+      font-weight: 500;
+    }
   }
 `
 

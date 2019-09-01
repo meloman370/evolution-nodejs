@@ -8,7 +8,7 @@ function template(title, initialState = {}, content = "", styleTags = ""){
                 <meta name="Description" content="Put your description here.">
                 <title> ${title} </title>
                 <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
                 ${styleTags}
               </head>
               <body style="margin:0">
@@ -20,7 +20,7 @@ function template(title, initialState = {}, content = "", styleTags = ""){
                 <script>
                   window.__STATE__ = ${JSON.stringify(initialState)}
                 </script>
-                <script src="assets/client.js"></script>
+                <script src="/assets/client.js"></script>
               </body>
               `;
 

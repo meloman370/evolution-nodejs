@@ -1,6 +1,6 @@
 import React from 'react'
 import MenuImageStyled from './style'
-import Image from '../../../Image'
+import Image from '../../../../../Image'
 
 const MenuImage = ({ name, alt }) => {
   return(

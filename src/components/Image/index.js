@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-const Image = ({ name, alt = 'image' }) => {
+const Image = ({ src, alt = 'image' }) => {
   return(
-    <img src={'/media/images/' + name} alt={alt}/>
+    <img src={'/media/images/' + src} alt={alt}/>
   )
 }
 
-export default Image
+export default memo(Image)

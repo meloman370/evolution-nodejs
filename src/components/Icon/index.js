@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Icon = ({ name, alt = 'icon' }) => {
+const Icon = ({ name, alt = 'icon', ...props }) => {
   return(
-    <img src={'/media/icons/' + name} alt={alt}/>
+    <img src={'/media/icons/' + name} alt={alt} {...props}/>
   )
 }
 

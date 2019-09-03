@@ -8,7 +8,7 @@ import Row from '../../../../styles/Row'
 const Banner = ({ img, align="center", link="/", isFull=false }) => {
   const content = (
     <BannerStyled align={align}>
-      <Image name={'banners/' + img}/>
+      <Image src={'banners/' + img}/>
       <div className="link">
         <NavLink to={link}>Посмотреть</NavLink>
       </div>

@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
-const SliderStyled = styled.div`
+const CarouselStyled = styled.div`
   border-top: 1px solid black;
+  width: 100%;
   text-align: center;
   margin-top: 60px;
+  position: relative;
 
   .title {
     font-family: Roboto;
@@ -13,9 +15,14 @@ const SliderStyled = styled.div`
     text-transform: uppercase;
     display: inline-block;
     margin-top: -25px;
+    margin-bottom: 30px;
     background: white;
     padding: 0 35px;
   }
+
+  .slick-next, .slick-prev {
+    display: none !important;
+  }
 `
 
-export default SliderStyled
+export default CarouselStyled

@@ -25,6 +25,7 @@
     "react-dom": "^16.9.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^5.0.1",
+    "react-slick": "^0.25.2",
     "redux": "^3.7.2",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.2"
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",

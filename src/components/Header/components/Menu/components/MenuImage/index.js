@@ -5,7 +5,7 @@ import Image from '../../../../../Image'
 const MenuImage = ({ name, alt }) => {
   return(
     <MenuImageStyled>
-      <Image name={'catalog/' + name} alt={alt}/>
+      <Image src={'catalog/' + name} alt={alt}/>
     </MenuImageStyled>
   )
 }

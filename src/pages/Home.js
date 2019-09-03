@@ -5,6 +5,7 @@ import Carousel from '../components/Content/components/Carousel'
 import ProductTeaser from '../components/ProductTeaser'
 import Container from '../styles/Container'
 import Row from '../styles/Row'
+import Map from '../components/Content/components/Map'
 
 export default class Home extends Component {
 	constructor(props) {
@@ -55,6 +56,24 @@ export default class Home extends Component {
 						</Row>
 					</Container>
 				</HomePageBlock>
+
+				<HomePageBlock>
+      	  <Banner 
+      	    img="second.png" 
+      	    link="/" 
+      	    align="center"
+						isFull={false}/>
+      	</HomePageBlock>
+
+				<HomePageBlock>
+      	  <Banner 
+      	    img="third.png" 
+      	    link="/" 
+      	    align="center"
+						isFull={false}/>
+      	</HomePageBlock>
+
+				<Map/>
 			</>
     )
   }

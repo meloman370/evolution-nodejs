@@ -4,7 +4,6 @@ const CarouselStyled = styled.div`
   border-top: 1px solid black;
   width: 100%;
   text-align: center;
-  margin-top: 60px;
   position: relative;
 
   .title {
@@ -18,10 +17,6 @@ const CarouselStyled = styled.div`
     margin-bottom: 30px;
     background: white;
     padding: 0 35px;
-  }
-
-  .slick-next, .slick-prev {
-    display: none !important;
   }
 `
 

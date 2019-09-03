@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const BannerStyled = styled.div`
   width: 100%;
@@ -14,6 +14,12 @@ const BannerStyled = styled.div`
     left: 0;
     width: 100%;
     text-align: ${props => props.align}
+
+    ${props =>
+      !props.isFull && css`
+        position: relative;
+      `
+    }
   }
 
   a {

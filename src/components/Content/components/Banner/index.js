@@ -7,7 +7,7 @@ import Row from '../../../../styles/Row'
 
 const Banner = ({ img, align="center", link="/", isFull=false }) => {
   const content = (
-    <BannerStyled align={align}>
+    <BannerStyled align={align} isFull={isFull}>
       <Image src={'banners/' + img}/>
       <div className="link">
         <NavLink to={link}>Посмотреть</NavLink>
@@ -20,9 +20,7 @@ const Banner = ({ img, align="center", link="/", isFull=false }) => {
   } else {
     return(
       <Container>
-        <Row>
-          {content}
-        </Row>
+        {content}
       </Container>
     )
   }

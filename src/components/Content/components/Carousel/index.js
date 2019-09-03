@@ -19,7 +19,9 @@ export default class Carousel extends Component {
       infinite: true,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      arrows: false,
+      swipeToSlide: true
     }
 
     return (

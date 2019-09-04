@@ -4,10 +4,8 @@ import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
 const Cart = ({ open = false, onOpen, onClose }) => {
-  const classes = useStyles()
   return(
     <SwipeableDrawer
-      className={classes.drawer}
       open={open}
       anchor="right"
       onOpen={onOpen}

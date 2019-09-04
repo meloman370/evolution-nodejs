@@ -20,6 +20,7 @@
     "url": "https://github.com/meloman370/evolution-nodejs"
   },
   "dependencies": {
+    "@material-ui/core": "^4.4.0",
     "express": "^4.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

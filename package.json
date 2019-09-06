@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "pack": "webpack --config webpack.config.js --mode=development",
+    "pack": "webpack --config webpack.config.js",
     "babel": "babel src -d views",
     "build": "npm run pack && npm run babel"
   },
@@ -24,6 +24,7 @@
     "express": "^4.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-imported-component": "^6.0.1",
     "react-redux": "^5.1.1",
     "react-router-dom": "^5.0.1",
     "react-slick": "^0.25.2",

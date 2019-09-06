@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { lazy, LazyBoundary } from 'react-imported-component'
 
 import HeaderStyled from './style'
 import Container from '../../styles/Container'
@@ -9,7 +10,8 @@ import SearchHeader from './components/SearchHeader'
 import LoginIcon from './components/LoginIcon'
 import CartIcon from './components/CartIcon'
 import Menu from './components/Menu'
-import Cart from '../Cart'
+
+const Cart = lazy(() => import('../Cart'))
 
 export default class Header extends Component {
 	state = {
@@ -48,7 +50,9 @@ export default class Header extends Component {
 						<Menu/>
 					</Row>
 				</Container>
-				<Cart open={this.state.open} onOpen={this.handleOpenCart} onClose={this.handleCloseCart}/>
+				<LazyBoundary fallback="">
+					<Cart open={this.state.open} onOpen={this.handleOpenCart} onClose={this.handleCloseCart}/>
+				</LazyBoundary>
       </HeaderStyled>
     )
   }

@@ -6,7 +6,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'assets'),
-    filename: "[name].js"
+    filename: "[name].js",
+    chunkFilename: '../assets/chunks/[name].js'
   },
   module: {
     rules: [

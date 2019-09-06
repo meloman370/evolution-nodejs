@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import {lazy, LazyBoundary} from 'react-imported-component'
+
 import Banner from '../components/Content/components/Banner'
 import HomePageBlock from '../styles/HomePageBlock'
-import Carousel from '../components/Content/components/Carousel'
 import ProductTeaser from '../components/ProductTeaser'
 import Container from '../styles/Container'
 import Row from '../styles/Row'
-import Map from '../components/Content/components/Map'
+
+const Carousel = lazy(() => import('../components/Content/components/Carousel'))
+const Map = lazy(() => import('../components/Content/components/Map'))
 
 export default class Home extends Component {
 	constructor(props) {
@@ -43,16 +46,18 @@ export default class Home extends Component {
 				<HomePageBlock>
 					<Container>
 						<Row>
-							<Carousel title="Бестселлеры">
-								<ProductTeaser data={this.product}/>
-								<ProductTeaser data={this.product2}/>
-								<ProductTeaser data={this.product}/>
-								<ProductTeaser data={this.product}/>
-								<ProductTeaser data={this.product}/>
-								<ProductTeaser data={this.product}/>
-								<ProductTeaser data={this.product}/>
-								<ProductTeaser data={this.product}/>
-							</Carousel>
+							<LazyBoundary fallback="">
+								<Carousel title="Бестселлеры">
+									<ProductTeaser data={this.product}/>
+									<ProductTeaser data={this.product2}/>
+									<ProductTeaser data={this.product}/>
+									<ProductTeaser data={this.product}/>
+									<ProductTeaser data={this.product}/>
+									<ProductTeaser data={this.product}/>
+									<ProductTeaser data={this.product}/>
+									<ProductTeaser data={this.product}/>
+								</Carousel>
+							</LazyBoundary>
 						</Row>
 					</Container>
 				</HomePageBlock>
@@ -73,7 +78,9 @@ export default class Home extends Component {
 						isFull={false}/>
       	</HomePageBlock>
 
-				<Map/>
+				<LazyBoundary fallback="">
+					<Map/>
+				</LazyBoundary>
 			</>
     )
   }

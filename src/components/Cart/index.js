@@ -1,5 +1,7 @@
 import React from 'react'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
+import ProductList from './components/ProductList'
+import FooterCart from './components/FooterCart'
 
 const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
@@ -13,7 +15,8 @@ const Cart = ({ open = false, onOpen, onClose }) => {
       disableBackdropTransition={!iOS} 
       disableDiscovery={iOS}
     >
-      cart content
+      <ProductList/>
+      <FooterCart/>
     </SwipeableDrawer>
   )
 }

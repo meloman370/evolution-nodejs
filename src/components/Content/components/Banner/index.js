@@ -3,7 +3,6 @@ import BannerStyled from './style'
 import { NavLink } from 'react-router-dom'
 import Image from '../../../Image'
 import Container from '../../../../styles/Container'
-import Row from '../../../../styles/Row'
 
 const Banner = ({ img, align="center", link="/", isFull=false }) => {
   const content = (

@@ -3,6 +3,8 @@ import MenuItemStyled from './style'
 import MenuPopup from '../../../../../../styles/MenuPopup'
 import MenuImage from '../MenuImage'
 
+export const PopupContext = React.createContext()
+
 const MenuItem = ({ title, image, children }) => {
   const [open, setOpen] = useState(false)
 
@@ -23,7 +25,9 @@ const MenuItem = ({ title, image, children }) => {
       </MenuItemStyled>
       {open && 
         <MenuPopup>
-          <div className="blocks">{children}</div>
+          <PopupContext.Provider value={setOpen}>
+            <div className="blocks">{children}</div>
+          </PopupContext.Provider>
           <MenuImage name="for-him.png" alt="for him catalog"/>
         </MenuPopup>
       }

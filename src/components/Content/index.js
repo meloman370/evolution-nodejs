@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Home from '../../pages/Home'
-import Login from '../../pages/Login'
+import CategoryPage from '../../pages/Category'
 import ContentStyled from './style'
 
 export default class Content extends Component {
@@ -10,7 +10,7 @@ export default class Content extends Component {
       <ContentStyled>
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/login" component={Login}/>
+          <Route path="/:menu/:category" component={CategoryPage}/>
           <Route render={() => <div>page not found</div>}/>
         </Switch>
       </ContentStyled>

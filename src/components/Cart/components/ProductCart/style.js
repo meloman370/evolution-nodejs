@@ -11,6 +11,7 @@ const ProductCartStyled = styled.div`
   .close {
     width: 15px;
     height: 15px;
+    cursor: pointer;
   }
 `
 

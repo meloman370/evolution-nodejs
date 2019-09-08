@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PaginationItemStyled from './style'
 
 const PaginationItem = ({ children, onClick, active = false }) => {
@@ -12,4 +12,4 @@ const PaginationItem = ({ children, onClick, active = false }) => {
   )
 }
 
-export default PaginationItem
+export default memo(PaginationItem)

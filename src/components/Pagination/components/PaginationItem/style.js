@@ -12,18 +12,10 @@ const PaginationItemStyled = styled.div`
   margin: 0 5px;
   cursor: pointer;
   border-radius: 50%;
-  transition: transform .2s;
-  transform: scale(1);
-
-  ${props => !props.active && css`
-    &:hover {
-      transform: scale(1.2);
-    }
-  `}
 
   ${props => props.active && css`
-    transform: scale(1.4);
-    margin: 0 10px;
+    background: dimgrey;
+    color: white;
   `}
 `
 

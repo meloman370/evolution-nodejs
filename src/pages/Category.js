@@ -32,7 +32,7 @@ export default class CategoryPage extends Component {
           </Left>
           <Right>
             <ProductGrid/>
-            <Pagination page={this.state.page} count={170} onChange={this.changePage}/>
+            <Pagination page={this.state.page} count={150} onChange={this.changePage}/>
           </Right>
         </CategoryPageStyled>
       </Container>

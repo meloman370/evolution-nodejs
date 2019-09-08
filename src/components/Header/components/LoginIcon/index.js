@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import LoginIconStyled from './style'
 import Icon from '../../../Icon'
 
@@ -10,4 +10,4 @@ const LoginIcon = () => {
   )
 }
 
-export default LoginIcon
+export default memo(LoginIcon)

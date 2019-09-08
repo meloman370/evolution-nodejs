@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import ProductCartStyled from './style'
 import Image from '../../../Image'
 import Title from './components/Title'
@@ -8,7 +8,7 @@ import Info from './components/Info'
 import Counter from './components/Counter'
 import Icon from '../../../Icon'
 
-export default class ProductCart extends Component {
+export default class ProductCart extends PureComponent {
   state = {
     count: 1
   }

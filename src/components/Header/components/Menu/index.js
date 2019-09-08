@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import MenuStyled from './style'
 import MenuItem from './components/MenuItem'
 import MenuItemBlock from './components/MenuItemBlock'
 import MenuLink from './components/MenuLink'
 
-export default class Menu extends Component {
+export default class Menu extends PureComponent {
   render() {
     return (
       <MenuStyled>

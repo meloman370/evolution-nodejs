@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import MenuItemStyled from './style'
 import MenuPopup from '../../../../../../styles/MenuPopup'
 import MenuImage from '../MenuImage'
@@ -35,4 +35,4 @@ const MenuItem = ({ title, image, children }) => {
   )
 }
 
-export default MenuItem
+export default memo(MenuItem)

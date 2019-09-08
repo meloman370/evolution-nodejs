@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import MenuItemBlockStyled from './style'
 
 const MenuItemBlock = ({ title, children }) => {
@@ -10,4 +10,4 @@ const MenuItemBlock = ({ title, children }) => {
   )
 }
 
-export default MenuItemBlock
+export default memo(MenuItemBlock)

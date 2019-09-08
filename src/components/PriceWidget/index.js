@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PriceWidgetStyled from './style'
 import Title from './components/Title'
 import Price from './components/Price'
 import SliderWidget from './components/SliderWidget'
 
-export default class PriceWidget extends Component {
+export default class PriceWidget extends PureComponent {
   state = {
     from: 0,
     to: 100

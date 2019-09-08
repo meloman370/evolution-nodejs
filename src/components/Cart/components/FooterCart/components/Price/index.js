@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import PriceStyled from './style'
 
 const Price = () => {
@@ -10,4 +10,4 @@ const Price = () => {
   )
 }
 
-export default Price
+export default memo(Price)

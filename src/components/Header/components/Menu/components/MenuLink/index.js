@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, memo } from 'react'
 import MenuLinkStyled from './style'
 import { NavLink } from 'react-router-dom'
 import { PopupContext } from '../MenuItem'
@@ -17,4 +17,4 @@ const MenuLink = ({ to, children }) => {
   )
 }
 
-export default MenuLink
+export default memo(MenuLink)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import ProductListStyled from './style'
 import ProductCart from '../ProductCart'
 
@@ -21,4 +21,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default memo(ProductList)

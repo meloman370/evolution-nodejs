@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import Search from '../../../Search'
 import SearchHeaderStyled from './style'
 
@@ -10,4 +10,4 @@ const SearchHeader = () => {
   )
 }
 
-export default SearchHeader
+export default memo(SearchHeader)

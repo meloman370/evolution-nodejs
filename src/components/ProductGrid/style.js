@@ -4,7 +4,6 @@ import { device } from '../../styles'
 const ProductGridStyled = styled.div`
   display: grid;
   grid-gap: 0vw;
-  grid-template-rows: repeat(4, 1fr);
 
   @media ${device.tablet} {
     grid-template-columns: repeat(3, 1fr);

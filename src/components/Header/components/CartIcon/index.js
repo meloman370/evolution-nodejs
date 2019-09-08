@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import CartIconStyled from './style'
 import Icon from '../../../Icon'
 
-export default class CartIcon extends Component {
+export default class CartIcon extends PureComponent {
   render() {
     return (
       <CartIconStyled>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ProductList from './components/ProductList'
@@ -31,4 +31,4 @@ const Cart = ({ open = false, onOpen, onClose }) => {
   )
 }
 
-export default Cart
+export default memo(Cart)

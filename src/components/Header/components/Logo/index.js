@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import LogoStyled from './style'
 
 const Logo = () => {
@@ -9,4 +9,4 @@ const Logo = () => {
   )
 }
 
-export default Logo
+export default memo(Logo)

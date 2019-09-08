@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import FooterCartStyled from './style'
 import Price from './components/Price'
 import Button from './components/Button'
@@ -12,4 +12,4 @@ const FooterCart = () => {
   )
 }
 
-export default FooterCart
+export default memo(FooterCart)

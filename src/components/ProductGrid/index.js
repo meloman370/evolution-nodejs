@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import ProductGridStyled from './style'
 import ProductTeaser from '../ProductTeaser'
 
@@ -26,4 +26,4 @@ const ProductGrid = () => {
   )
 }
 
-export default ProductGrid
+export default memo(ProductGrid)

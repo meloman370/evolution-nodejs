@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import MenuImageStyled from './style'
 import Image from '../../../../../Image'
 
@@ -10,4 +10,4 @@ const MenuImage = ({ name, alt }) => {
   )
 }
 
-export default MenuImage
+export default memo(MenuImage)

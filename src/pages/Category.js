@@ -3,10 +3,10 @@ import CategoryPageStyled from '../styles/CategoryPage'
 import Left from '../styles/CategoryPage/styles/Left'
 import Right from '../styles/CategoryPage/styles/Right'
 import Container from '../styles/Container'
-import PriceWidget from '../components/PriceWidget'
-import ProductGrid from '../components/ProductGrid'
-import Breadcrumbs from '../components/Breadcrumbs'
-import Pagination from '../components/Pagination'
+import PriceWidget from '../components/Widgets/PriceWidget'
+import ProductGrid from '../components/Content/components/ProductGrid'
+import Breadcrumbs from '../components/Content/components/Breadcrumbs'
+import Pagination from '../components/Content/components/Pagination'
 
 export default class CategoryPage extends Component {
   state = {

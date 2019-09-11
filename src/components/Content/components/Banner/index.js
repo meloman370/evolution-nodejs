@@ -1,7 +1,7 @@
 import React from 'react'
 import BannerStyled from './style'
 import { NavLink } from 'react-router-dom'
-import Image from '../../../Image'
+import Image from '../Image'
 import Container from '../../../../styles/Container'
 
 const Banner = ({ img, align="center", link="/", isFull=false }) => {

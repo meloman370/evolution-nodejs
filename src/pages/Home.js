@@ -3,7 +3,7 @@ import {lazy, LazyBoundary} from 'react-imported-component'
 
 import Banner from '../components/Content/components/Banner'
 import HomePageBlock from '../styles/HomePageBlock'
-import ProductTeaser from '../components/ProductTeaser'
+import ProductTeaser from '../components/Content/components/ProductTeaser'
 import Container from '../styles/Container'
 import Row from '../styles/Row'
 

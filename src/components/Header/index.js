@@ -11,7 +11,7 @@ import LoginIcon from './components/LoginIcon'
 import CartIcon from './components/CartIcon'
 import Menu from './components/Menu'
 
-const Cart = lazy(() => import('../Cart'))
+const Cart = lazy(() => import('./components/Cart'))
 
 export default class Header extends Component {
 	state = {

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import PaginationStyled from './style'
 import PaginationItem from './components/PaginationItem'
-import Icon from '../Icon'
+import Icon from '../../../Icon'
 
 const pageSize = 16
 let visiblePerRow = 5 //always shold be odd

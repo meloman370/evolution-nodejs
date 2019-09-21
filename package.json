@@ -9,9 +9,11 @@
   },
   "scripts": {
     "start": "node index.js",
-    "pack": "webpack --config webpack.config.js --mode=development",
+    "pack-dev": "webpack --config webpack-dev.config.js",
+    "pack-prod": "webpack --config webpack-prod.config.js",
     "babel": "babel src -d views",
-    "build": "npm run pack && npm run babel"
+    "build": "npm run pack-prod && npm run babel",
+    "dev": "npm run pack-dev && npm run babel"
   },
   "author": "Rohit kumar",
   "license": "CC BY 4.0",

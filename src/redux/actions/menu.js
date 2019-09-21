@@ -20,6 +20,7 @@ function receiveMenu(json) {
 function fetchMenu() {
   return dispatch => {
     dispatch(requestMenu())
+    debugger;
     return axios.get(process.env.API_URL + `/menu/`).then(response => {
       dispatch(receiveMenu(response.data))
     }).catch(error => {

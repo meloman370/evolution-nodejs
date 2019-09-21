@@ -1,11 +1,16 @@
 const path = require('path');
 const webpack = require('webpack')
-var dotenv = require('dotenv').config({path: __dirname + '/.env'});
+
+// Configs for client side
+const configs = {
+  "API_URL": "http://localhost:8000/api/v1"
+}
 
 module.exports = {
   entry: {
     client: './src/client.js'
   },
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'assets'),
     publicPath: "/assets/",
@@ -19,7 +24,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(dotenv.parsed)
+      'process.env': JSON.stringify(configs)
     })
   ]
 }

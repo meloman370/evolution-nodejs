@@ -1,8 +1,9 @@
 import React, { memo } from 'react'
+import Img from 'react-webp-image'
 
-const Image = ({ src, alt = 'image' }) => {
+const Image = ({ src, alt = 'image', webp }) => {
   return(
-    <img src={'/media/images/' + src} alt={alt}/>
+    <Img src={src} webp={webp} alt={alt}/>
   )
 }
 

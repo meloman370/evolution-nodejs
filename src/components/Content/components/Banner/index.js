@@ -7,7 +7,7 @@ import Container from '../../../../styles/Container'
 const Banner = ({ img, align="center", link="/", isFull=false }) => {
   const content = (
     <BannerStyled align={align} isFull={isFull}>
-      <Image src={'banners/' + img}/>
+      <Image src={'/media/images/banners/' + img}/>
       <div className="link">
         <NavLink to={link}>Посмотреть</NavLink>
       </div>

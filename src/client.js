@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import {hydrate} from 'react-dom'
 import {Provider} from 'react-redux'
-import configureStore from './redux/configureStore'
+import {configureClientStore} from './redux/configureStore'
 import App from './app'
 
 // Read the state sent with markup
@@ -12,7 +12,7 @@ const state = window.__STATE__;
 delete window.__STATE__;
 
 // reproduce the store used to render the page on server
-const store = configureStore(state)
+const store = configureClientStore(state)
 
 /**
  * hydrate the page to make sure both server and client

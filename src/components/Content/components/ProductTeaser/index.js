@@ -11,7 +11,7 @@ export default class ProductTeaser extends Component {
     const { image, title, type, price, currency, discount } = this.props.data
     return (
       <ProductTeaserStyled>
-        <Image src={'catalog/' + image} alt={title}/>
+        <Image src={'/media/images/catalog/' + image} alt={title}/>
         <Type>{type}</Type>
         <Title>{title}</Title>
         <Price currency={currency} discount={discount}>{price}</Price>

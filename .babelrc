@@ -1,4 +1,4 @@
 {
   "presets": ["@babel/env", "@babel/react"],
-  "plugins": ["@babel/plugin-proposal-class-properties", "react-imported-component/babel"]
+  "plugins": ["@babel/plugin-proposal-class-properties", "react-imported-component/babel", "@babel/plugin-transform-runtime"]
 }

@@ -1,14 +1,30 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import rootReducer from './reducers'
+import menuReducer from './reducers/menu'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
+const rootReducer = combineReducers({
+  menu: menuReducer
+})
 
-export default function configureStore(preloadedState) {
+export function configureServerStore() {
+  return createStore(
+    rootReducer,
+    applyMiddleware(
+      thunkMiddleware
+    )
+  )
+}
+
+export function configureClientStore(preloadedState) {
+  const composeEnhancers = composeWithDevTools({});
   return createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(
-      thunkMiddleware
+    composeEnhancers(
+      applyMiddleware(
+        thunkMiddleware
+      )
     )
   )
 }

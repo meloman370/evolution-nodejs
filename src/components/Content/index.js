@@ -11,8 +11,8 @@ export default class Content extends Component {
       <ContentStyled>
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/:menu/:category" exact component={CategoryPage}/>
-          <Route path="/:menu/:category/:product_id" component={ProductPage}/>
+          <Route path="/product/:product_id" component={ProductPage}/>
+          <Route path="/*" component={CategoryPage}/>
           <Route render={() => <div>page not found</div>}/>
         </Switch>
       </ContentStyled>

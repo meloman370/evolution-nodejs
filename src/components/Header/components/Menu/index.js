@@ -1,13 +1,18 @@
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
 import MenuStyled from './style'
-import MenuItem from './components/Desktop/components/MenuItem'
-import MenuItemBlock from './components/Desktop/components/MenuItemBlock'
-import MenuLink from './components/Desktop/components/MenuLink'
 import { fetchMenuIfNeeded } from '../../../../redux/actions/menu'
 import Desktop from './components/Desktop'
+const serverHandler = require('../../../../helpers/server-handler')
 
 class Menu extends PureComponent {
+  constructor(props) {
+    super(props)
+    if (serverHandler.isServer) {
+      const { dispatch } = this.props
+      serverHandler.handleRequest(dispatch(fetchMenuIfNeeded()))
+    }
+  }
 
   componentDidMount() {
     const { dispatch } = this.props

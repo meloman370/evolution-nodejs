@@ -2,12 +2,12 @@ import React from 'react'
 import BreadcrumbItemStyled from './style'
 import { NavLink } from 'react-router-dom'
 
-const BreadcrumbItem = ({ to, children, isLast = false }) => {
+const BreadcrumbItem = ({ data, isLast }) => {
   let link = ''
-  if (to) {
-    link = <NavLink to={to}>{children}</NavLink>
+  if (data.to) {
+    link = <NavLink to={data.to}>{data.name}</NavLink>
   } else [
-    link = <div>{children}</div>
+    link = <div>{data.name}</div>
   ]
 
   return(

@@ -21,5 +21,4 @@ const BreadcrumbItemStyled = styled.div`
     display: inline-block;
   }
 `
-
 export default BreadcrumbItemStyled

@@ -2,14 +2,13 @@ import React, { memo } from 'react'
 import MenuItemBlockStyled from './style'
 import MenuLink from '../MenuLink'
 
-const MenuItemBlock = ({ data }) => {
-  const links = data.category.map((link, i) => (
-    <MenuLink data={link} key={i}/>
-  ))
+const MenuItemBlock = ({ data: {name, category} }) => {
   return(
     <MenuItemBlockStyled>
-      <div className="title">{data.name}</div>
-      {links}
+      <div className="title">{name}</div>
+      {category.map(link => (
+        <MenuLink data={link} key={link.id}/>
+      ))}
     </MenuItemBlockStyled>
   )
 }

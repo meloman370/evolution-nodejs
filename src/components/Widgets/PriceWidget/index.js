@@ -1,29 +1,50 @@
-import React, { PureComponent } from 'react'
-import PriceWidgetStyled from './style'
+import React, { PureComponent, memo, useEffect, useState } from 'react'
+import {PriceWidgetStyled, TitleLoading, PriceLoading, SliderLoading} from './style'
 import Title from './components/Title'
 import Price from './components/Price'
 import SliderWidget from './components/SliderWidget'
 
-export default class PriceWidget extends PureComponent {
-  state = {
-    from: 0,
-    to: 100
+const PriceWidget = ({min, max, isLoading, onChange}) => {
+  const [from, setFrom] = useState(0)
+  const [to, setTo] = useState(0)
+  
+  const changePrice = (_from, _to) => {
+    if (_from !== from || _to !== to) {
+      setFrom(_from)
+      setTo(_to)
+      onChange(_from, _to)
+    }
   }
 
-  changePrice = (from, to) => {
-    this.setState({
-      from,
-      to
-    })
-  }
+  useEffect(() => {
+    setFrom(min)
+  }, [min])
 
-  render() {
-    return (
-      <PriceWidgetStyled>
-        <Title>Цена (BYN)</Title>
-        <Price from={this.state.from} to={this.state.to} onChange={this.changePrice}/>
-        <SliderWidget from={this.state.from} to={this.state.to} onChange={this.changePrice}/>
-      </PriceWidgetStyled>
-    )
-  }
+  useEffect(() => {
+    setTo(max)
+  }, [max])
+
+  return(
+    <PriceWidgetStyled>
+      {(isLoading || !min || !max || !from || !to) &&
+        <>
+          <TitleLoading/>
+          <PriceLoading>
+            <div className="left"/>
+            <div className="right"/>
+          </PriceLoading>
+          <SliderLoading/>
+        </>
+      }
+      {!isLoading && min && max && from && to &&
+        <>
+          <Title>Цена (BYN)</Title>
+          <Price from={from} to={to} onChange={changePrice}/>
+          <SliderWidget from={from} to={to} min={min} max={max} onChange={changePrice}/>
+        </>
+      }
+    </PriceWidgetStyled>
+  )
 }
+
+export default memo(PriceWidget)

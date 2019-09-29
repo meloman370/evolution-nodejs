@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 import DiscountStyled from './style'
 
-const Discount = ({ currency, children }) => {
+const Discount = ({ children }) => {
   return(
     <DiscountStyled>
-      {children} {currency}
+      {children}
     </DiscountStyled>
   )
 }

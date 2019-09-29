@@ -3,7 +3,7 @@ import MenuLinkStyled from './style'
 import { NavLink } from 'react-router-dom'
 import { PopupContext } from '../MenuItem'
 
-const MenuLink = ({ data }) => {
+const MenuLink = ({ data: {image, compressed_image, name, url_alias} }) => {
   const {setOpen, setImage} = useContext(PopupContext)
 
   const onClickHander = () => {
@@ -12,15 +12,15 @@ const MenuLink = ({ data }) => {
 
   const onMouseEnterHandler = () => {
     setImage({
-      src: data.image,
-      webp: data.compressed_image
+      src: image,
+      webp: compressed_image
     })
   }
 
   return(
     <MenuLinkStyled>
-      <NavLink to={data.url_alias} activeClassName="active" onClick={onClickHander} onMouseEnter={onMouseEnterHandler}>
-        {data.name}
+      <NavLink to={url_alias} activeClassName="active" onClick={onClickHander} onMouseEnter={onMouseEnterHandler}>
+        {name}
       </NavLink>
     </MenuLinkStyled>
   )

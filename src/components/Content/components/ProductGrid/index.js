@@ -1,27 +1,24 @@
 import React, { memo } from 'react'
-import ProductGridStyled from './style'
+import {ProductGridStyled, ProductLoadingTitle, ProductLoadingPrice, ProductLoadingImage} from './style'
 import ProductTeaser from '../ProductTeaser'
 
-const product = {
-  'title': 'Маша',
-  'type': 'Анальный вибратор',
-  'image': 'product.png',
-  'price': '420',
-  'currency': 'BYN',
-  'discount': '120'
-}
-
-const ProductGrid = () => {
+const ProductGrid = ({products, isLoading}) => {
   return(
     <ProductGridStyled>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
-      <ProductTeaser data={product}/>
+      {(isLoading && !products.length) &&
+        [...Array(24).keys()].map((item) => (
+          <div key={item}>
+            <ProductLoadingImage/>
+            <ProductLoadingTitle/>
+            <ProductLoadingPrice/>
+          </div>
+        ))
+      }
+      {products.length > 0 &&
+        products.map(product => (
+          <ProductTeaser data={product} key={product.id}/>
+        ))
+      }
     </ProductGridStyled>
   )
 }

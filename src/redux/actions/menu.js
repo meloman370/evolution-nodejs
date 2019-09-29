@@ -20,17 +20,16 @@ function receiveMenu(json) {
 function fetchMenu() {
   return dispatch => {
     dispatch(requestMenu())
-    debugger;
     return axios.get(process.env.API_URL + `/menu/`).then(response => {
       dispatch(receiveMenu(response.data))
     }).catch(error => {
-      receiveMenu([])
+      dispatch(receiveMenu([]))
     }) 
   }
 }
 
 function shouldFetchMenu(state) {
-  if (state.isFetching || state.menu.items.length > 0) {
+  if (state.menu.isFetching || state.menu.items.length > 0) {
     return false
   }
   return true

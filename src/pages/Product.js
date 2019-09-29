@@ -52,7 +52,6 @@ export default class ProductPage extends Component {
   }
 
   changeColor =(color) => {
-    console.log(color)
     this.setState({color})
   }
 
@@ -63,7 +62,6 @@ export default class ProductPage extends Component {
   render() {
     return (
       <Container>
-        <Breadcrumbs/>
         <ProductPageStyled>
           <Left>
             <Slider images={images} />

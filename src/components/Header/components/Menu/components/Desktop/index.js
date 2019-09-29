@@ -3,12 +3,11 @@ import DesktopStyled from './style'
 import MenuItem from './components/MenuItem'
 
 const Desktop = ({items}) => {
-  const menu_items = items.map((item, i) => (
-    <MenuItem data={item} key={i}/>
-  ))
   return(
     <DesktopStyled>
-      {menu_items}
+      {items.map(item => (
+        <MenuItem data={item} key={item.id}/>
+      ))}
     </DesktopStyled>
   )
 }

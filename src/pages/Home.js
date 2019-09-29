@@ -1,83 +1,39 @@
 import React, { Component } from 'react'
 import {lazy, LazyBoundary} from 'react-imported-component'
+import { connect } from 'react-redux'
 
-import Banner from '../components/Content/components/Banner'
 import HomePageBlock from '../styles/HomePageBlock'
-import ProductTeaser from '../components/Content/components/ProductTeaser'
-import Container from '../styles/Container'
-import Row from '../styles/Row'
+import Block from '../components/Content/components/Block'
+import {fetchBlockIfNeeded} from '../redux/actions/block'
+const serverHandler = require('../helpers/server-handler')
 
-const Carousel = lazy(() => import('../components/Content/components/Carousel'))
+
+const Carousel = lazy(() => import('../components/Content/components/Block/components/Carousel'))
 const Map = lazy(() => import('../components/Content/components/Map'))
 
-export default class Home extends Component {
+class Home extends Component {
 	constructor(props) {
-    super(props)
-    this.product = {
-      'title': 'Маша',
-      'type': 'Анальный вибратор',
-      'image': 'product.png',
-      'price': '420',
-      'currency': 'BYN',
-      'discount': '120'
+		super(props)
+		if (serverHandler.isServer) {
+			const { dispatch } = this.props
+			serverHandler.handleRequest(dispatch(fetchBlockIfNeeded()))
 		}
-		
-		this.product2 = {
-      'title': 'Мисс Марпл',
-      'type': 'Двойной вибратор',
-      'image': 'product2.png',
-      'price': '420',
-      'currency': 'BYN',
-      'discount': '120'
-    }
+	}
+
+	componentDidMount() {
+		const { dispatch } = this.props
+		dispatch(fetchBlockIfNeeded())
 	}
 	
   render() {
+		const {blocks} = this.props
     return (
 			<>
-      	<HomePageBlock>
-      	  <Banner 
-      	    img="first.png" 
-      	    link="/" 
-      	    align="right"
-						isFull={true}/>
-      	</HomePageBlock>
-
-				<HomePageBlock>
-					<Container>
-						<Row>
-							<LazyBoundary fallback="">
-								<Carousel title="Бестселлеры">
-									<ProductTeaser data={this.product}/>
-									<ProductTeaser data={this.product2}/>
-									<ProductTeaser data={this.product}/>
-									<ProductTeaser data={this.product}/>
-									<ProductTeaser data={this.product}/>
-									<ProductTeaser data={this.product}/>
-									<ProductTeaser data={this.product}/>
-									<ProductTeaser data={this.product}/>
-								</Carousel>
-							</LazyBoundary>
-						</Row>
-					</Container>
-				</HomePageBlock>
-
-				<HomePageBlock>
-      	  <Banner 
-      	    img="second.png" 
-      	    link="/" 
-      	    align="center"
-						isFull={false}/>
-      	</HomePageBlock>
-
-				<HomePageBlock>
-      	  <Banner 
-      	    img="third.png" 
-      	    link="/" 
-      	    align="center"
-						isFull={false}/>
-      	</HomePageBlock>
-
+				{blocks.map(block => (
+					<HomePageBlock key={block.id}>
+						<Block data={block}/>
+					</HomePageBlock>
+				))}
 				<LazyBoundary fallback="">
 					<Map/>
 				</LazyBoundary>
@@ -85,3 +41,15 @@ export default class Home extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  const { isFetching, items } = state.block
+ 
+  return {
+    isFetching,
+    blocks: items
+  }
+}
+ 
+export default connect(mapStateToProps)(Home)
+

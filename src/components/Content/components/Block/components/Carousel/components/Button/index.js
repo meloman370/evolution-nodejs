@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 import ButtonStyled from './style'
-import Icon from '../../../../../Icon'
+import Icon from '../../../../../../../Icon'
 
 const Button = ({ align, name, ...props }) => {
   return(

@@ -2,12 +2,19 @@ import React, { memo } from 'react'
 import PriceStyled from './style'
 import Discount from '../Discount'
 
-const Price = ({ discount, currency, children }) => {
+const Price = ({ discount, price }) => {
+  price = +price
+  discount = +discount
   return(
     <PriceStyled>
-      {children} {currency}
-      {discount &&
-        <Discount currency={currency}>{discount}</Discount>
+      {!discount &&
+        price + ' BYN'
+      }
+      {!!discount &&
+        <>
+          {discount} BYN
+          <Discount>{price} BYN</Discount>
+        </>
       }
     </PriceStyled>
   )

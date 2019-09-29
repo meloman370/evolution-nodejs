@@ -1,13 +1,35 @@
 import React, { memo } from 'react'
-import BreadcrumbsStyled from './style'
+import {BreadcrumbsStyled, BreadcrumbsItemLoading} from './style'
 import BreadcrumbItem from './components/BreadcrumbItem'
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({isLoading, items}) => {
   return(
     <BreadcrumbsStyled>
-      <BreadcrumbItem>Для него</BreadcrumbItem>
-      <BreadcrumbItem to="/for-him/anal" isLast={true}>Анальные игрушки</BreadcrumbItem>
+      {!isLoading && items.length > 0 && (
+        <BreadcrumbItems items={items}/>
+      )}
+      {isLoading &&
+        <BreadcrumbsLoading/>
+      }
     </BreadcrumbsStyled>
+  )
+}
+
+const BreadcrumbItems = ({items}) => {
+  return(
+    <div className="fuck">
+      {items.map((item, i) => (
+        <BreadcrumbItem key={i} data={item} isLast={i == items.length-1}/>
+      ))}
+    </div>
+  )
+}
+
+const BreadcrumbsLoading = () => {
+  return(
+    <>
+      <BreadcrumbsItemLoading/> / <BreadcrumbsItemLoading/>
+    </>
   )
 }
 

@@ -6,17 +6,14 @@ import { StaticRouter } from 'react-router-dom'
 import { ServerStyleSheet } from 'styled-components'
 import {configureServerStore} from './redux/configureStore'
 import App from './app'
-import { fetchMenuIfNeeded } from './redux/actions/menu'
+const serverHandler = require('./helpers/server-handler')
 
 
 module.exports = async function render(path) {
   // Configure the store with the initial state provided
   const store = configureServerStore()
-
-  // Preload data from api
-  await store.dispatch(fetchMenuIfNeeded())
-
   const sheet = new ServerStyleSheet()
+  serverHandler.path = path
 
   // render the App store static markup ins content variable
   let content = renderToString(
@@ -28,6 +25,9 @@ module.exports = async function render(path) {
       </StaticRouter>
     )
   );
+
+  // Get preloaded state
+  await serverHandler.collectPreloadedState()
 
   // Get styled tags for server slyling
   const styleTags = sheet.getStyleTags()

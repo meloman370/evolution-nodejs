@@ -3,14 +3,13 @@ import PaginationStyled from './style'
 import PaginationItem from './components/PaginationItem'
 import Icon from '../../../Icon'
 
-const pageSize = 16
-let visiblePerRow = 5 //always shold be odd
-
 const Pagination = ({ page, count, onChange }) => {
+  const pageSize = 2
   const countPages = Math.ceil(count / pageSize)
   const leftItems = []
   const rightItems = []
   let showArrows = true
+  let visiblePerRow = 5 //always shold be odd
 
   if (visiblePerRow >= countPages) {
     visiblePerRow = countPages

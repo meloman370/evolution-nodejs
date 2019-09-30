@@ -4,6 +4,8 @@ export const ProductPageStyled = styled.div`
   display: flex;
   margin-top: 50px;
   margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 `
 export const Title = styled.div`
   font-family: Roboto;
@@ -61,6 +63,7 @@ export const Button = styled.div`
   border-radius: 4px;
   text-decoration: none;
   cursor: pointer;
+  margin-top: 20px;
 `
 
 export const TextBlock = styled.div`

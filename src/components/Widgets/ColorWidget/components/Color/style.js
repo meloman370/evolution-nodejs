@@ -4,6 +4,7 @@ const ColorStyled = styled.div`
   width: 25px;
   height: 25px;
   border-radius: 50%;
+  border: 1px solid #bdbdbd;
   background-color: ${props => props.hex}
   margin-right: 5px;
   cursor: pointer;

@@ -7,6 +7,7 @@ const ProductTeaserStyled = styled.div`
 
   img {
     max-width: 190px;
+    margin: 0 auto;
   }
 
   a {

@@ -2,13 +2,13 @@ import React, { memo } from 'react'
 import ColorStyled from './style'
 import Icon from '../../../../Icon'
 
-const Color = ({ children, onClick, hex, active }) => {
+const Color = ({ data, onClick, active }) => {
   const onClickHandler = () => {
-    onClick(children)
+    onClick(data)
   }
 
   return(
-    <ColorStyled hex={hex} onClick={onClickHandler}>
+    <ColorStyled hex={data.value} onClick={onClickHandler}>
       {active &&
         <Icon name="tick.svg"/>
       }

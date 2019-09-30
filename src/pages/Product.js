@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import {connect} from 'react-redux'
 import Container from '../styles/Container'
-import Breadcrumbs from '../components/Content/components/Breadcrumbs'
 import Left from '../styles/ProductPage/styles/Left'
 import Right from '../styles/ProductPage/styles/Right'
-import Slider from '../components/Content/components/Slider'
+import SliderImages from '../components/Content/components/Slider'
 import ColorWidget from '../components/Widgets/ColorWidget'
+import {fetchProductIfNeeded} from '../redux/actions/product'
+import {collectOptions} from '../helpers/groups-helper'
 import { 
   ProductPageStyled, 
   Title, 
@@ -19,72 +21,84 @@ import {
   Text
 } from '../styles/ProductPage'
 
-const images = [
-  {src: 'catalog/for-him.png'},
-  {src: 'catalog/product.png'},
-  {src: 'catalog/product2.png'},
-  {src: 'catalog/product.png'},
-  {src: 'catalog/product.png'}
-]
-
-const product = {
-  'title': 'Маша',
-  'type': 'Анальный вибратор',
-  'image': 'product.png',
-  'price': '420',
-  'currency': 'BYN',
-  'discount': '120',
-  'brand': 'test test',
-  'features': "Полностью погружаемый для использования в душе или ванне Bluetooth включен - позволяет управлять игрушкой в любой точке мира при подключении к WiFi Изогнутый, разработанный специально для поп.",
-  'description': 'Vector by We-Vibe - это переносной массажер простаты с дистанционным управлением. Это новое дополнение к линии We-Vibe, полностью настраиваемое, чтобы соответствовать вашему телу с регулируемой головой и гибким основанием. Небольшая изогнутая форма специально разработана для стимуляции простаты. Есть 2 отдельных двигателя, которые стимулируют не только простату, но и промежность. Эта перезаряжаемая водонепроницаемая игрушка также оснащена Bluetooth и беспроводным пультом дистанционного управления, что означает, что вы можете передать контроль над игрушкой своему партнеру. Загрузите бесплатное приложение We-Connect, и ваш партнер теперь сможет управлять игрушкой из любой точки мира.'
-}
-
-const colors = [
-  {value: '#ed3742', name: 'Красный'},
-  {value: '#000000;', name: 'Черный'},
-  {value: '#293A78', name: 'Синий'},
-  {value: '#8EC7B2', name: 'Берюзовый'}
-]
-
-export default class ProductPage extends Component {
+class ProductPage extends PureComponent {
   state = {
-    color: colors[0].name
+    activeColor: null
   }
 
   changeColor =(color) => {
-    this.setState({color})
+    this.setState({
+      activeColor: color.id
+    })
+    console.log('color', color)
   }
 
   addToCart = () => {
     console.log('add to card')
   }
+  
+  componentDidMount() {
+    const {dispatch, match} = this.props
+    dispatch(fetchProductIfNeeded(match.params.product_id))
+  }
 
+  getPercentage() {
+    const {product: {price, discount}} = this.props
+    const diff = price - discount
+    const percentage = diff * 100 / price
+    return Math.round(percentage)
+  }
+  
   render() {
+    const {isFetching, product} = this.props
+    const {activeColor} = this.state
+    let groups = []
+    if (product.options) {
+      groups = collectOptions(product.options)
+    }
     return (
       <Container>
         <ProductPageStyled>
-          <Left>
-            <Slider images={images} />
-          </Left>
-          <Right>
-            <Title>{product.type} {product.title}</Title>
-            <Brand>{product.brand}</Brand>
-            <Line/>
-            <Price>20 BYN <Discount>45 BYN</Discount></Price>
-            <DiscountText>Вы экономите 55% (25 BYN)</DiscountText>
-            <ColorWidget colors={colors} onChange={this.changeColor} active={this.state.color}/>
-            <Button onClick={this.addToCart}>Добавить в корзину</Button>
-            <TextBlock>
-              <TextTitle>Особенности:</TextTitle>
-              <Text>{product.features}</Text>
-            </TextBlock>
-            <TextBlock>
-              <TextTitle>Описание:</TextTitle>
-              <Text>{product.description}</Text>
-            </TextBlock>
-          </Right>
+          {!isFetching && product.id &&
+            <>
+              <Left>
+                <SliderImages images={product.images} activeColor={activeColor}/>
+              </Left>
+              <Right>
+                <Title>{product.title}</Title>
+                <Brand>{product.short_description}</Brand>
+                <Line/>
+                {+product.discount > 0 &&
+                  <>
+                    <Price>{+product.discount} BYN <Discount>{+product.price} BYN</Discount></Price>
+                    <DiscountText>Вы экономите {this.getPercentage()}% ({product.price - product.discount} BYN)</DiscountText>
+                  </>
+                }
+                {+product.discount == 0 &&
+                  <Price>{+product.price} BYN</Price>
+                }
+                {groups.color &&
+                  <ColorWidget colors={groups.color} onChange={this.changeColor}/>
+                }
+                <Button onClick={this.addToCart}>Добавить в корзину</Button>
+                <TextBlock>
+                  <TextTitle>Описание:</TextTitle>
+                  <Text>{product.long_description}</Text>
+                </TextBlock>
+              </Right>
+            </>
+          }
         </ProductPageStyled>
       </Container>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    isFetching: state.product.isFetching,
+    product: state.product.info
+  }
+}
+ 
+export default connect(mapStateToProps)(ProductPage)

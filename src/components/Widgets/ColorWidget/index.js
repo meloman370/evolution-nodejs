@@ -1,18 +1,20 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { ColorWidgetStyled, Title, ColorWrapper } from './style'
 import Color from './components/Color'
 
-const ColorWidget = ({ onChange, colors, active }) => {
+const ColorWidget = ({ onChange, colors }) => {
+  const [active, setActive] = useState(0)
+
   const onClickColor = (color) => {
+    setActive(color)
     onChange(color)
   }
-
   return(
     <ColorWidgetStyled>
       <Title>Цвет</Title>
       <ColorWrapper>
-        {colors.map(({ name, value }, i) => (
-          <Color hex={value} onClick={onClickColor} key={i} active={active == name}>{name}</Color>
+        {colors.map((color) => (
+          <Color data={color} onClick={onClickColor} key={color.id} active={active.id == color.id} />
         ))}
       </ColorWrapper>
     </ColorWidgetStyled>

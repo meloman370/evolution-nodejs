@@ -13,12 +13,12 @@ export const ActiveItem = styled.div`
 `
 
 export const Row = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  position: relative;
   margin-top: 10px;
+  width: 100%;
 `
 
-export const Item = styled.div`
+export const ItemStyled = styled.div`
   cursor: pointer;
+  padding-right: 15px;
 `

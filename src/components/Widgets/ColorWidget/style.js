@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const ColorWidgetStyled = styled.div`
   margin-top: 20px;
-  margin-bottom: 30px;
 `
 
 export const Title = styled.div`

@@ -17,7 +17,7 @@ function receiveMenu(json) {
   }
 }
 
-function fetchMenu() {
+export function fetchMenu() {
   return dispatch => {
     dispatch(requestMenu())
     return axios.get(process.env.API_URL + `/menu/`).then(response => {

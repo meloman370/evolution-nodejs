@@ -1,12 +1,19 @@
 import React, { memo, useState } from 'react'
+import {withRouter} from 'react-router-dom'
 import LoginIconStyled from './style'
 import Icon from '../../../Icon'
 import LoginModal from '../LoginModal'
+import {userGetToken} from '../../../../helpers/user-helper'
 
-const LoginIcon = () => {
+const LoginIcon = ({history}) => {
   const [open, setOpen] = useState(false)
   const onClickHandler = () => {
-    setOpen(true)
+    const token = userGetToken()
+    if (token) {
+      history.push('/profile')
+    } else {
+      setOpen(true)
+    }
   }
 
   const onClose = () => {
@@ -21,4 +28,6 @@ const LoginIcon = () => {
   )
 }
 
-export default memo(LoginIcon)
+export default memo(
+  withRouter(LoginIcon)
+)

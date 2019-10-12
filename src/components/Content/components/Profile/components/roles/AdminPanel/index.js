@@ -1,8 +1,9 @@
 import React, {memo, useState} from 'react'
-import Tabs from '../Tabs'
-import TabPanel from '../TabPanel'
-import {Panel, Item} from '../../style'
-import MenuTabPanel from '../MenuTabPanel'
+import Tabs from '../../Tabs'
+import TabPanel from '../../TabPanel'
+import {Panel, Item} from '../../../style'
+import MenuTabPanel from '../../MenuTabPanel'
+import ProfileTabPanel from '../../ProfileTabPanel'
 
 const AdminPanel = () => {
   const [value, setValue] = React.useState(0)
@@ -17,14 +18,14 @@ const AdminPanel = () => {
         value={value}
         onChange={handleChange}
       >
-        <Item label="Меню" />
-        <Item label="Настройки" />
+        <Item label="Меню"/>
+        <Item label="Профиль"/>
       </Tabs>
       <TabPanel index={0} value={value}>
-        <MenuTabPanel />
+        <MenuTabPanel/>
       </TabPanel>
       <TabPanel index={1} value={value}>
-        item two selected
+        <ProfileTabPanel/>
       </TabPanel>
     </Panel>
   )

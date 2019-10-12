@@ -1,10 +1,10 @@
 import React, {memo} from 'react'
 import {ROLES} from '../../../../helpers/user-helper'
-import AdminPanel from './components/AdminPanel'
+import AdminPanel from './components/roles/AdminPanel'
 
 const {
-  ADMIN, 
-  MANAGER, 
+  ADMIN,
+  MANAGER,
   CUSTOMER
 } = ROLES
 

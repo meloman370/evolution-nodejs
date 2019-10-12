@@ -57,8 +57,8 @@ const LoginModal = ({open, onClose, history}) => {
         {errors['password'] &&
           <Error>{errors['password']}</Error>
         }
-        {errors['non_field_errors'] && errors['non_field_errors'].map(error => (
-          <Error>{error}</Error>
+        {errors['non_field_errors'] && errors['non_field_errors'].map((error, i) => (
+          <Error key={i}>{error}</Error>
         ))}
         <ButtonStyled variant="outlined" onClick={signIn}>
           {loading ? <Loader /> : 'Войти'}

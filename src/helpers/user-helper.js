@@ -20,6 +20,10 @@ export async function userLogin(username, password) {
   }
 }
 
+export function userLogout() {
+  localStorage.removeItem('auth_token')
+}
+
 export function userGetToken() {
   return localStorage.getItem('auth_token')
 }

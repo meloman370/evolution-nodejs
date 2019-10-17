@@ -47,7 +47,7 @@ function mapStateToProps(state) {
  
   return {
     isFetching,
-    blocks: items
+    blocks: items.sort((a, b) => (a.weight > b.weight) ? 1 : -1)
   }
 }
  

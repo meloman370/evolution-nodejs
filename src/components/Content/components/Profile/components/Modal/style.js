@@ -6,6 +6,9 @@ import Fab from '@material-ui/core/Fab'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 export const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-family: Roboto;
   font-size: 24px;
 `
@@ -60,6 +63,10 @@ export const ImageUpload = styled(Fab)`
 
 export const Row = styled.div`
   display: flex;
+
+  ${props => props.jc && css`
+    justify-content: ${props.jc}
+  `}
 `
 
 export const Left = styled.div`
@@ -69,4 +76,13 @@ export const Left = styled.div`
 export const Right = styled.div`
   width: 100%;
   margin-left: 30px;
+`
+
+export const Line = styled.hr`
+  width: 100%;
+  box-shadow: none;
+  border-style: solid;
+  border-color: #cbcbcb;
+  border-width: 0.5px;
+  margin-top: 15px;
 `

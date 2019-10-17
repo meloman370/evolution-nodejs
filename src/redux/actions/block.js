@@ -16,7 +16,7 @@ function receiveBlock(json) {
   }
 }
 
-function fetchBlock() {
+export function fetchBlock() {
   return dispatch => {
     dispatch(requestBlock())
     return axios.get(process.env.API_URL + `/blocks/`).then(response => {

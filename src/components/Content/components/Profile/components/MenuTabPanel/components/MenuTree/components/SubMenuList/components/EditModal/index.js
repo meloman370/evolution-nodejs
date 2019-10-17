@@ -46,7 +46,7 @@ const EditModal = ({open, onClose, item, dispatch}) => {
   }
 
   return(
-    <Modal open={open} onClose={onClose} width={300}>
+    <Modal open={open} onClose={onClose} width={350}>
       <Title>Редактировать подкатегорию</Title>
         <InputField
           id="sub_menu_name"

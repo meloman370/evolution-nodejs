@@ -7,6 +7,11 @@ const LogoStyled = styled.span`
   font-size: 50px;
   letter-spacing: -0.02em;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
 `
 
 export default LogoStyled

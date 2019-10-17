@@ -4,6 +4,7 @@ import TabPanel from '../../TabPanel'
 import {Panel, Item} from '../../../style'
 import MenuTabPanel from '../../MenuTabPanel'
 import ProfileTabPanel from '../../ProfileTabPanel'
+import BlockTabPanel from '../../BlocksTabPanel'
 
 const AdminPanel = () => {
   const [value, setValue] = React.useState(0)
@@ -19,12 +20,16 @@ const AdminPanel = () => {
         onChange={handleChange}
       >
         <Item label="Меню"/>
+        <Item label="Блоки"/>
         <Item label="Профиль"/>
       </Tabs>
       <TabPanel index={0} value={value}>
         <MenuTabPanel/>
       </TabPanel>
       <TabPanel index={1} value={value}>
+        <BlockTabPanel/>
+      </TabPanel>
+      <TabPanel index={2} value={value}>
         <ProfileTabPanel/>
       </TabPanel>
     </Panel>

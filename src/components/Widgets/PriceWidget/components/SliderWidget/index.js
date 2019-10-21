@@ -12,7 +12,7 @@ const SliderWidget = ({ from, to, onChange, min, max }) => {
         onChange={handleChange}
         valueLabelDisplay="on"
         aria-labelledby="range-slider"
-        step={10}
+        step={50}
         marks
         min={min}
         max={max}

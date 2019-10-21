@@ -11,7 +11,9 @@ const ProductItem = ({data, onClick, add = true}) => {
   return(
     <Row>
       <ImageStyle>
-        <Image src={data.images[0].origin} webp={data.images[0].compressed} alt={data.images[0].alt}/>
+        {data.images.length > 0 &&
+          <Image src={data.images[0].origin} webp={data.images[0].compressed} alt={data.images[0].alt}/>
+        }
       </ImageStyle>
       <Info>
         <Title>{data.title}</Title>

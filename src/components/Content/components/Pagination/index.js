@@ -4,7 +4,7 @@ import PaginationItem from './components/PaginationItem'
 import Icon from '../../../Icon'
 
 const Pagination = ({ page, count, onChange }) => {
-  const pageSize = 2
+  const pageSize = 24
   const countPages = Math.ceil(count / pageSize)
   const leftItems = []
   const rightItems = []

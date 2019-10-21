@@ -1,23 +1,40 @@
-import React, {memo} from 'react'
+import React, {memo, useState, useEffect} from 'react'
 import PriceStyled from './style'
 
 const Price = ({ from, to, onChange }) => {
+  const [_from, setFrom] = useState(0)
+  const [_to, setTo] = useState(0)
 
-  const changeFromHandler = (e) => {
-    from = e.target.value
-    onChange(from, to)
+  useEffect(() => {
+    setFrom(from)
+    setTo(to)
+  }, [from, to])
+
+  const onBlurFromHandler = (e) => {
+    if (e.target.value > 0) {
+      onChange(_from, _to)
+    }
   }
 
-  const changeToHandler = (e) => {
-    to = e.target.value
-    onChange(from, to)
+  const onBlurToHandler = (e) => {
+    if (e.target.value > 0) {
+      onChange(_from, _to)
+    }
+  }
+
+  const changeFrom = (e) => {
+    setFrom(+e.target.value)
+  }
+
+  const changeTo = (e) => {
+    setTo(+e.target.value)
   }
 
   return(
     <PriceStyled>
-      <input type="text" onChange={changeFromHandler} value={from}/>
+      <input type="text" onBlur={onBlurFromHandler} onChange={changeFrom} value={_from}/>
       <span>-</span>
-      <input type="text" onChange={changeToHandler} value={to}/>
+      <input type="text" onBlur={onBlurToHandler} onChange={changeTo} value={_to}/>
     </PriceStyled>
   )
 }

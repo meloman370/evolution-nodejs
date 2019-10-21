@@ -42,7 +42,9 @@ const SliderImages = ({ images, activeColor = null }) => {
   return(
     <SliderStyled>
       <ActiveItem>
-        <Image src={images[active].origin} webp={images[active].compressed} alt={images[active].alt} />
+        {images.length > 0 && images[active].origin &&
+          <Image src={images[active].origin} webp={images[active].compressed} alt={images[active].alt} />
+        }
       </ActiveItem>
       <Row>
         <Slider ref={sliderRef} {...settings}>

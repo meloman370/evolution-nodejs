@@ -96,7 +96,7 @@ class CategoryPage extends Component {
           </Left>
           <Right>
             <ProductGrid isLoading={productsIsFetching} products={products}/>
-            {products.length &&
+            {products.length > 0 &&
               <Pagination page={this.state.page} count={count} onChange={this.changePage}/>
             }
           </Right>

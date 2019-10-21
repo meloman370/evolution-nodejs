@@ -35,6 +35,7 @@ export const ModalDialog = styled(Dialog)`
 
     ${props => props.width && css`
       width: ${props.width}px;
+      max-width: inherit;
     `}
   }
 `

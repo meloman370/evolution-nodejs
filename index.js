@@ -20,7 +20,7 @@ app.use(compression({threshold: 0}))
 // hide powered by express
 app.disable('x-powered-by');
 // start the server
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 80);
 
 //SSR function import
 const ssr = require('./views/server');

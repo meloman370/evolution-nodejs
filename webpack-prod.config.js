@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 // Configs for client side
 const configs = {
-  "API_URL": "https://stormy-river-20369.herokuapp.com/api/v1"
+  "API_URL": "http://localhost:8000/api/v1"
 }
 
 module.exports = {
